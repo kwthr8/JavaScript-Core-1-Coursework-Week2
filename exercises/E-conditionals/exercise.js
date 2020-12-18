@@ -8,8 +8,10 @@
 
 var name = "Daniel";
 var danielsRole = "mentor";
-
-/* 
+if (danielsRole) {
+  console.log("Hi I'm Daniel, I'm a mentor");
+}
+/*
 EXPECTED RESULT
 ---------------
 Hi, I'm Daniel, I'm a mentor.

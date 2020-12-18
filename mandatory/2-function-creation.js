@@ -5,7 +5,13 @@ Write a function that:
 - removes any forward slashes (/) in the strings
 - makes the string all lowercase
 */
-function tidyUpString(strArr) {}
+function tidyUpString(strArr) {
+  for (let index = 0; index < strArr.length; index++) {
+    strArr[index] = strArr[index].trim().replace("/", "").toLowerCase();
+  }
+
+  return strArr;
+}
 
 /*
 Complete the function to check if the variable `num` satisfies the following requirements:
@@ -15,7 +21,17 @@ Complete the function to check if the variable `num` satisfies the following req
 Tip: use logical operators
 */
 
-function validate(num) {}
+function validate(num) {
+  let isANumber = !isNaN(num);
+  if (isANumber) {
+    let isEven = (num % 2) == 0;
+    let isSmallEnough = num <= 100;
+
+    return isEven && isSmallEnough;
+  }
+
+  return false;
+}
 
 /* 
 Write a function that returns a copy of the given array arr, but with the element at the given index, index removed.
@@ -23,7 +39,14 @@ The function must NOT change the original array, arr.
 */
 
 function remove(arr, index) {
-  return; // complete this statement
+  let arrCopy = [];
+
+  for (let curIndex = 0; curIndex < arr.length; curIndex++) {
+    if (index != curIndex) {
+      arrCopy.push(arr[curIndex]);
+    }
+  }
+  return arrCopy; // complete this statement
 }
 
 /*
@@ -34,7 +57,19 @@ Write a function that:
 - numbers greater 100 must be replaced with 100
 */
 
-function formatPercentage(arr) {}
+function formatPercentage(arr) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    let numberToReturn = arr[i];
+    if (numberToReturn > 100) {
+      numberToReturn = 100;
+    }
+    numberToReturn = parseFloat(numberToReturn.toFixed(2)) + "%";
+    newArr.push(numberToReturn);
+  }
+
+  return newArr;
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 
